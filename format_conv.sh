@@ -1,5 +1,4 @@
 #!/bin/bash
-cd data
 for i in $(seq 0 1 4)
 do 
 mkdir data_$i
