@@ -1,0 +1,208 @@
+{
+    "type_map": [
+        "Cu",
+        "Cl"
+    ],
+    "mass_map": [
+        63.546,
+        35.45
+    ],
+    "init_data_prefix": "./",
+    "init_data_sys": [
+        "./data_0"
+    ],
+    "sys_configs_prefix": "./",
+    "sys_configs": [
+        [
+            "CuCl.POSCAR.01x01x01/01.scale_pert/sys-0032-0032/scale-0.970/*/POSCAR"
+        ],
+        [
+            "CuCl.POSCAR.01x01x01/01.scale_pert/sys-0032-0032/scale-0.980/*/POSCAR"
+        ],
+	[
+	    "disp.POSCAR"
+	],
+	[  
+	    "CuCl.POSCAR.01x01x01/01.scale_pert/sys-0032-0032/scale-1.000/*/POSCAR"
+	],
+	[
+	    "CuCl.POSCAR.01x01x01/01.scale_pert/sys-0032-0032/scale-1.020/*/POSCAR"
+	],
+	[   
+	    "CuCl.POSCAR.01x01x01/01.scale_pert/sys-0032-0032/scale-1.030/*/POSCAR"
+	]
+
+    ],
+    "_comment": " that's all ",
+    "numb_models": 4,
+    "default_training_param": {
+        "model": {
+            "type_map": [
+                "Cu",
+                "Cl"
+            ],
+            "descriptor": {
+                "type": "se_e2_a",
+                "sel": [
+                    32,
+                    32
+                ],
+                "rcut_smth": 0.5,
+                "rcut": 6.0,
+                "neuron": [
+                    25,
+                    50,
+                    100
+                ],
+                "resnet_dt": false,
+                "axis_neuron": 16,
+                "seed": 1
+            },
+            "fitting_net": {
+                "neuron": [
+                    240,
+                    240,
+                    240
+                ],
+                "resnet_dt": true,
+                "seed": 1
+            }
+        },
+        "learning_rate": {
+            "type": "exp",
+            "start_lr": 0.001,
+	    "stop_lr": 3.51e-8,
+            "decay_steps": 5000
+        },
+        "loss": {
+            "start_pref_e": 0.02,
+            "limit_pref_e": 1,
+            "start_pref_f": 1000,
+            "limit_pref_f": 1,
+            "start_pref_v": 0.0,
+            "limit_pref_v": 0.0
+        },
+        "training": {
+            "stop_batch": 200000,
+            "disp_file": "lcurve.out",
+            "disp_freq": 1000,
+            "numb_test": 4,
+            "save_freq": 1000,
+            "save_ckpt": "model.ckpt",
+            "disp_training": true,
+            "time_training": true,
+            "profiling": false,
+            "profiling_file": "timeline.json",
+            "_comment": "that's all"
+        }
+    },
+    "model_devi_dt": 0.002,
+    "model_devi_skip": 0,
+    "model_devi_f_trust_lo": 0.05,
+    "model_devi_f_trust_hi": 0.15,
+    "model_devi_e_trust_lo": 10000000000.0,
+    "model_devi_e_trust_hi": 10000000000.0,
+    "model_devi_clean_traj": true,
+    "model_devi_jobs": [
+        {
+            "sys_idx": [
+                0
+            ],
+            "temps": [
+                200,300
+            ],
+            "press": [
+                1.0
+            ],
+            "trj_freq": 10,
+            "nsteps": 2000,
+            "ensemble": "nvt",
+            "_idx": "00"
+        },
+        {
+            "sys_idx": [
+                1
+            ],
+            "temps": [
+                200,300 
+            ],
+            "press": [ 
+                1.0
+            ],
+            "trj_freq": 10,
+            "nsteps": 2000,
+            "ensemble": "nvt",
+            "_idx": "01"
+        },
+	{
+            "sys_idx": [
+                2
+            ],
+            "temps": [
+                300
+            ],
+            "press": [
+                1.0
+            ],
+            "trj_freq": 10,
+            "nsteps": 2000,
+            "ensemble": "nvt",
+            "_idx": "02"
+        },
+	{
+	    "sys_idx": [
+                3
+	    ],
+	    "temps": [
+		300
+	    ],
+	    "press": [
+		0.0
+	    ],
+	    "trj_freq": 10,
+	    "nsteps": 1800,
+	    "ensemble": "npt",
+	    "_idx": "03"
+	},
+        {
+            "sys_idx": [
+                4
+            ],
+            "temps": [
+                200,300
+            ],
+            "press": [
+                1.0
+            ],
+            "trj_freq": 10,
+            "nsteps": 2000,
+            "ensemble": "nvt",
+            "_idx": "04"
+        },
+        {
+            "sys_idx": [
+                5
+            ],
+            "temps": [
+                200,300
+            ],
+            "press": [
+                1.0
+            ],
+            "trj_freq": 10,
+            "nsteps": 2000,
+            "ensemble": "nvt",
+            "_idx": "05"
+        }
+    ],
+    "fp_style": "vasp",
+    "shuffle_poscar": false,
+    "fp_task_max": 80,
+    "fp_task_min": 1,
+    "fp_pp_path": "./",
+    "fp_pp_files": [
+        "POTCAR_Cu",
+        "POTCAR_Cl"
+    ],
+    "fp_incar": "./INCAR_CuCl"
+}
